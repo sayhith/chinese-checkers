@@ -1,4 +1,4 @@
-# chinese-checkers
+# Chinese Checkers
 
 ## Players
 - 2, 3, 4, or 6
