@@ -1,4 +1,4 @@
-git add .
-git commit -m "commit message here"
-git push 
+git add .  (stages changes to be committed)
+git commit -m "commit message here"   (commit message must be all lowercase)
+git push (pushes committed changes to github)
 git status 
