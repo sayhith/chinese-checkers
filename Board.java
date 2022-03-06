@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /**
  * Board 
@@ -81,11 +83,66 @@ public class Board {
     }
 
     public void moveOver(Marble m) {
-        getValidSpots(m);
-        //TODO
+        ArrayList<Position> openSpots = getValidSpots(m);
+
+
     }
 
     public void jump() {
         //TODO
     }
+
+    // public String stringify(Marble[] lom) {
+    //     String s = "";
+    //     for (Marble m : lom) {
+    //         if (m == null) {
+    //             s.concat("." + '\n');
+    //             //return ".";
+    //             //System.out.print("." + '\n');
+    //         } else {
+    //             s.concat("x" + '\n');
+    //             //return "x";
+    //             //System.out.print("x" + '\n');
+    //         }
+    //     }
+    //     return s;
+    // } 
+
+    public String[][] stringify2() {
+        String[][] stringArray = new String[17][25];
+        for (int i = 0; i < 17; i++) {
+            for (int j = 0 ; j < 25 ; j++) {
+                if (this.boardArray[j][i] == null){
+                    stringArray[i][j] = ".";
+                } else {
+                    stringArray[i][j] = "x";
+                }
+            }
+        }
+        return stringArray;
+        // //for (int i = 0 ; i < 25; i++) {
+        //     for (Marble m : lom) {
+        //         if (m == null) {
+        //             los.add("." + '\n');
+        //         }
+        //         else {
+        //             los.add("x" + '\n');
+        //         }
+        //      } return los;
+    }
+
+    // public void printList(String[] los) {
+    //     for (String s : los) {
+    //         System.out.println(s);
+    //     }
+    // }
+
+    public void printBoard(String[][] stringArray) {
+        for (String[] los : stringArray) {
+            System.out.println(String.join(" ", los));
+        }
+    }
 }
+
+
+

@@ -51,5 +51,9 @@
   - Created isEven() and isOdd() helper methods 
   - **** ASK ERIK ABOUT THE ISONBOARD METHOD PLACEMENT ****
 
-
+March 5, 2022
+- Print to console functions completed 
+- Learned that you cannot add things to an array and you have to predetermine size 
+- Used a nested for loop to iterate over an array of arrays and create another array of arrays of string
+- Used String.join() to append strings in a list of string to print board  
 
