@@ -34,4 +34,25 @@ public class Position {
     public boolean isOdd(int i) {
         return (i % 2 == 1);
     }
+
+    @Override
+    public boolean equals(Object o) {
+ 
+        // If the object is compared with itself then return true 
+        if (o == this) {
+            return true;
+        }
+ 
+        /* Check if o is an instance of Position or not
+          "null instanceof [type]" also returns false */
+        if (!(o instanceof Position)) {
+            return false;
+        }
+         
+        // typecast o to Position so that we can compare data members
+        Position p = (Position) o;
+         
+        // Compare the data members and return accordingly
+        return (x == p.x) && (y == p.y);
+    }
 }

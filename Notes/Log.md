@@ -54,6 +54,19 @@
 March 5, 2022
 - Print to console functions completed 
 - Learned that you cannot add things to an array and you have to predetermine size 
-- Used a nested for loop to iterate over an array of arrays and create another array of arrays of string
-- Used String.join() to append strings in a list of string to print board  
+- Used a nested for-loop to iterate over an array of arrays and create another array of arrays of string
+- Used String.join() to append strings in a list of string to print board 
+
+March 21, 2022
+- Implemented moveOver() method in Marble class - this does the actually updating of the marble's position and the Board
+- Eventually users will be able to move pieces by clicking on them and the desired spot when GUI implemented 
+- For now user has to input position of piece they want to move 
+- Imported Scanner class to receive user input
+- User will be prompted to input two integers sequentially for X and Y of piece they want to move 
+- Created the movePiece() method in Board class to receive this input and then pass on to moveOver() method 
+- movePiece() is in the Board class and not Marble class because before it runs there is no Marble object for it to work on 
+- moveOver() method prompts the user for position of the next spot (CHANGE THIS so that before user puts in the ints the console prints out the list of valid positions to move to)
+- if given spot is a valid spot, it updates the position of the Marble and updates the Board
+- To update Board, had to override equals() so I can compare the values of two positions (to check if the user given position is in the list of validPositions) 
+
 

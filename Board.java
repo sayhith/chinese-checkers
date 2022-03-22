@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
 
 /**
@@ -69,46 +69,26 @@ public class Board {
         }
     }
 
-    private boolean isUnoccupied(Position p) {
+    public boolean isUnoccupied(Position p) {
         return (boardArray[p.x][p.y] == null);
     }
 
-    public ArrayList<Position> getValidSpots(Marble m) {
-        ArrayList<Position> validSpots = new ArrayList<Position> ();
-        for (Position p : m.getAdjacentSpots()) {
-            if (isUnoccupied(p) && p.isOnBoard()) {
-                validSpots.add(p);
-            }
-        } return validSpots;
-    }
-
-    public void moveOver(Marble m) {
-        ArrayList<Position> openSpots = getValidSpots(m);
-
-
+    public void selectPiece() {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Enter the x coordinate of the piece you would like to move");
+        int xCoord = myScanner.nextInt();
+        System.out.println("Enter the y coordinate of the piece you would like to move");
+        int yCoord = myScanner.nextInt();
+        Marble targetPiece = new Marble(1, new Position(xCoord, yCoord));
+        targetPiece.moveOver(this);
+        myScanner.close();
     }
 
     public void jump() {
         //TODO
     }
 
-    // public String stringify(Marble[] lom) {
-    //     String s = "";
-    //     for (Marble m : lom) {
-    //         if (m == null) {
-    //             s.concat("." + '\n');
-    //             //return ".";
-    //             //System.out.print("." + '\n');
-    //         } else {
-    //             s.concat("x" + '\n');
-    //             //return "x";
-    //             //System.out.print("x" + '\n');
-    //         }
-    //     }
-    //     return s;
-    // } 
-
-    public String[][] stringify2() {
+    public String[][] drawBoard() {
         String[][] stringArray = new String[17][25];
         for (int i = 0; i < 17; i++) {
             for (int j = 0 ; j < 25 ; j++) {
@@ -120,22 +100,7 @@ public class Board {
             }
         }
         return stringArray;
-        // //for (int i = 0 ; i < 25; i++) {
-        //     for (Marble m : lom) {
-        //         if (m == null) {
-        //             los.add("." + '\n');
-        //         }
-        //         else {
-        //             los.add("x" + '\n');
-        //         }
-        //      } return los;
     }
-
-    // public void printList(String[] los) {
-    //     for (String s : los) {
-    //         System.out.println(s);
-    //     }
-    // }
 
     public void printBoard(String[][] stringArray) {
         for (String[] los : stringArray) {
