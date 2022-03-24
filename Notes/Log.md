@@ -51,22 +51,39 @@
   - Created isEven() and isOdd() helper methods 
   - **** ASK ERIK ABOUT THE ISONBOARD METHOD PLACEMENT ****
 
-March 5, 2022
+  ## March 5, 2022
 - Print to console functions completed 
 - Learned that you cannot add things to an array and you have to predetermine size 
 - Used a nested for-loop to iterate over an array of arrays and create another array of arrays of string
 - Used String.join() to append strings in a list of string to print board 
 
-March 21, 2022
+## March 21, 2022
 - Implemented moveOver() method in Marble class - this does the actually updating of the marble's position and the Board
 - Eventually users will be able to move pieces by clicking on them and the desired spot when GUI implemented 
 - For now user has to input position of piece they want to move 
 - Imported Scanner class to receive user input
 - User will be prompted to input two integers sequentially for X and Y of piece they want to move 
-- Created the movePiece() method in Board class to receive this input and then pass on to moveOver() method 
-- movePiece() is in the Board class and not Marble class because before it runs there is no Marble object for it to work on 
+- Created the selectPiece() method in Board class to receive this input and then pass on to moveOver() method 
+- selectPiece() is in the Board class and not Marble class because before it runs there is no Marble object for it to work on 
 - moveOver() method prompts the user for position of the next spot (CHANGE THIS so that before user puts in the ints the console prints out the list of valid positions to move to)
 - if given spot is a valid spot, it updates the position of the Marble and updates the Board
 - To update Board, had to override equals() so I can compare the values of two positions (to check if the user given position is in the list of validPositions) 
 
+## March 23, 2022
+- Deleted selectPiece() and created a askUserForMarbleCoords() in new UserInput class which will contain everything related to user interaction 
+- askUserForMarbleCoords() returns a Position 
+- Can choose the desired marble by indexing at that position 
+- main() now calls askUserForMarbleCoords() and moveOver() instead of selectPiece()
+
+- Created checkIfWon() to determine if a game is over 
+- checkIfWon() runs after every turn instead of after a certain number of turns because it's easier to code and understand 
+  - Future improvement: Start running checkIfWon() only after the minimum number of moves to win have been played 
+- This method determines if the recently played marble and all marbles of its colour are in their "endzone" to see if that player has won the game 
+- First need to filter out all the marbles of the same colour
+- Then check if all the positions of the marbles match with a position in their endzone 
+- I didn't have a list of the endzone positions so I modified the createUp/DownTriangle methods to also create a matrix of endzone Positions
+- Chose to put them in a matrix instead of having six different lists for each colour 
+- Matrix contains endzone Positions and the first index tells you the colour 
+- Used a for loop to generate the marbles and fill in the endzone matrix 
+- Added "oppColour" attribute to Marble to keep track of its opponent's colour so we know which endzone it needs to be in 
 

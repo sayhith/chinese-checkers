@@ -6,11 +6,29 @@ import java.util.Scanner;
  */
  public class Marble {
     int colour;
+    int oppColour;
     Position pos;
 
-    public Marble(int colour, Position pos) {
+    public Marble(int colour, int oppColour, Position pos) {
         this.colour = colour;
+        this.oppColour = oppColour;
         this.pos = pos;
+    }
+
+    public int getColour() {
+        return colour;
+    }
+
+    public void setColour(int colour) {
+        this.colour = colour;
+    }
+
+    public int getOppColour() {
+        return oppColour;
+    }
+
+    public void setOppColour(int oppColour) {
+        this.oppColour = oppColour;
     }
 
     public Position getPos() {
@@ -60,8 +78,5 @@ import java.util.Scanner;
             board[startingPos.x][startingPos.y] = null;
         }
     }
-
-
-
 }
 
