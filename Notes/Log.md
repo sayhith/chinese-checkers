@@ -40,7 +40,6 @@
 
   ## March 1, 2022
 
-  ###
   - Decided to change structure so that everything pertaining to the position of a marble is contained in the Board class (ie. the Board knows where the Marbles are but the Marbles do not)
   - Problem: now the Marble doesn't know its own coordinates so the getAdjacentSpots method has to search the matrix to find a specific instance of marble (since each piece on the board is its own instance)
   - Changed it back so now the Marble has an attribute for its coordinates 
@@ -86,4 +85,18 @@
 - Matrix contains endzone Positions and the first index tells you the colour 
 - Used a for loop to generate the marbles and fill in the endzone matrix 
 - Added "oppColour" attribute to Marble to keep track of its opponent's colour so we know which endzone it needs to be in 
+## March 24, 2022
+- Pulled all Scanner function out of moveOver() and put it into a new method called askUserForMoveCoords() in UserInput
+- Made Scanner a static property of the UserInput class so there is only one for the duration of the program 
+- Did not include a Scanner.close() statement because the lifetime of the program is one game and we need the Scanner for the entire game 
+- Program will end when game is over and Scanner will close too
+
+- Put a do-while loop in main() that checks if the game has been won at the end of each cycle so that you can make more than one move 
+
+- Added switch statement to drawBoard() to give marbles of each colour a different symbol 
+
+- Board did not print - kept getting a null pointer exception
+  - Found out that all arrays had rows and columns mixed up so instead of boardArray[25][17] should have been boardArray[17][25]
+
+- Learned about "continue" statement which ends the current iteration and continues to the next iteration (all code after continue is not executed)
 

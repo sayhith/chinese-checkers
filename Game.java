@@ -4,25 +4,26 @@ import java.util.Arrays;
 public class Game {
     public static void main(String[] args) {
         Board chineseCheckers = new Board();
-
         chineseCheckers.initBoard();
-        String[][] stringArray = chineseCheckers.drawBoard();
-        chineseCheckers.printBoard(stringArray);
+        boolean won = false;
 
-        Position pos = UserInput.askUserForMarbleCoords();
-        Marble marble = chineseCheckers.getBoardArray()[pos.x][pos.y];
-        
-        marble.moveOver(chineseCheckers);
-        checkIfWon(chineseCheckers, marble, chineseCheckers.getEndZones()[marble.getOppColour()]);
+        do {
+            chineseCheckers.printBoard(chineseCheckers.drawBoard());
+            Position pos = UserInput.askUserForMarbleCoords();
+            Marble marble = chineseCheckers.getBoardArray()[pos.x][pos.y];
 
-        chineseCheckers.printBoard(chineseCheckers.drawBoard());
+            marble.moveOver(chineseCheckers);
+            won = checkIfWon(chineseCheckers, marble, chineseCheckers.getEndZones()[marble.getOppColour()]);
+        }
+        while (won == false); 
+        System.out.println("Congratulations! You have won the game");
     }
 
     public static boolean checkIfWon(Board board, Marble marble, Position[] lop) {
         ArrayList<Marble> sameColouredMarbles = new ArrayList<Marble>();
         for (Marble[] marbleArray : board.boardArray) {
             for (Marble m : marbleArray) {
-                if (m.colour == marble.colour) {
+                if ((m != null) && (m.colour == marble.colour)) {
                     sameColouredMarbles.add(m);
                 }
             }

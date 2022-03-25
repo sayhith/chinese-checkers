@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Marble 
@@ -61,20 +60,13 @@ import java.util.Scanner;
 
     public void moveOver(Board b) {
         Position startingPos = this.pos;
-        Scanner myScanner = new Scanner(System.in);
-        System.out.println("Enter the x coordinate for your move");
-        int newXCoord = myScanner.nextInt();
-        System.out.println("Enter the y coordinate for your move");
-        int newYCoord = myScanner.nextInt();
-        myScanner.close();
-
-        Position nextSpot = new Position(newXCoord, newYCoord);
+        Position nextSpot = UserInput.askUserForMoveCoords();
 
         ArrayList<Position> possibleSpots = this.getValidSpots(b);
         if (possibleSpots.contains(nextSpot)) {
             this.setPos(nextSpot); 
             Marble[][] board = b.getBoardArray();
-            board[newXCoord][newYCoord] = this;
+            board[nextSpot.x][nextSpot.y] = this;
             board[startingPos.x][startingPos.y] = null;
         }
     }
