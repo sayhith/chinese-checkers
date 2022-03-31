@@ -16,7 +16,7 @@ public class Game {
             won = checkIfWon(chineseCheckers, marble, chineseCheckers.getEndZones()[marble.getOppColour()]);
         }
         while (won == false); 
-        System.out.println("Congratulations! You have won the game");
+        System.out.println("Congratulations! You have won the game.");
     }
 
     public static boolean checkIfWon(Board board, Marble marble, Position[] lop) {

@@ -100,3 +100,9 @@
 
 - Learned about "continue" statement which ends the current iteration and continues to the next iteration (all code after continue is not executed)
 
+## March 30, 2022
+- Modified moveOver() method to allow for jumping over pieces 
+- Added getJumpingSpots() to provide a list of positions that a piece can move to if they jump over other pieces
+- getJumpingSpots() is recursive 
+- getAdjacentSpots() and getJumpingSpots() only return valid positions now because they check and remove all invalid positions before returning
+- created isEmptySpotOnBoard() to check if a spot is both unoccupied and on the board in one method by combining the two other helper methods 

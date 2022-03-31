@@ -38,37 +38,60 @@ import java.util.ArrayList;
         this.pos = pos;
     }
 
-    public ArrayList<Position> getAdjacentSpots() {
-        ArrayList<Position> adjacentSpots = new ArrayList<Position> ();
-        adjacentSpots.add(new Position(this.pos.x-2, this.pos.y));
-        adjacentSpots.add(new Position(this.pos.x+2, this.pos.y));
-        adjacentSpots.add(new Position(this.pos.x-1, this.pos.y-1));
-        adjacentSpots.add(new Position(this.pos.x-1, this.pos.y+1));
-        adjacentSpots.add(new Position(this.pos.x+1, this.pos.y-1));
-        adjacentSpots.add(new Position(this.pos.x+1, this.pos.y+1));
-        return adjacentSpots;
+    public ArrayList<Position> getValidSpots(Board b) {
+        ArrayList<Position> validSpots = new ArrayList<Position>();
+        validSpots.addAll(getAdjacentSpots(b));
+        ArrayList<Position> jumpingSpots = new ArrayList <Position>();
+        validSpots.addAll(getJumpingSpots(b, pos.x, pos.y, jumpingSpots));
+        return validSpots;
     }
 
-    public ArrayList<Position> getValidSpots(Board b) {
-        ArrayList<Position> validSpots = new ArrayList<Position> ();
-        for (Position p : this.getAdjacentSpots()) {
-            if (b.isUnoccupied(p) && p.isOnBoard()) {
-                validSpots.add(p);
+    public ArrayList<Position> getAdjacentSpots(Board b) {
+        ArrayList<Position> adjacentSpots = new ArrayList<Position> ();
+        adjacentSpots.add(new Position(pos.x-2, pos.y));
+        adjacentSpots.add(new Position(pos.x+2, pos.y));
+        adjacentSpots.add(new Position(pos.x-1, pos.y-1));
+        adjacentSpots.add(new Position(pos.x-1, pos.y+1));
+        adjacentSpots.add(new Position(pos.x+1, pos.y-1));
+        adjacentSpots.add(new Position(pos.x+1, pos.y+1));
+        for (Position p : adjacentSpots) {
+            if (!b.isEmptySpotOnBoard(p)) {
+                adjacentSpots.remove(p);
             }
-        } return validSpots;
+        } return adjacentSpots;
+    }
+
+    public ArrayList<Position> getJumpingSpots(Board b, int x, int y, ArrayList<Position> jumpingSpots) {
+        jumpingSpots.add(new Position(x-4, y));
+        jumpingSpots.add(new Position(x+4, y));
+        jumpingSpots.add(new Position(x-2, y-2));
+        jumpingSpots.add(new Position(x-2, y+2));
+        jumpingSpots.add(new Position(x+2, y-2));
+        jumpingSpots.add(new Position(x+2, y+2));
+
+        for (Position p : jumpingSpots) {
+            if (!b.isEmptySpotOnBoard(p) || (jumpingSpots.contains(p))) {
+                jumpingSpots.remove(p);
+            }
+            getJumpingSpots(b, p.x, p.y, jumpingSpots);
+        }
+        return jumpingSpots;
     }
 
     public void moveOver(Board b) {
-        Position startingPos = this.pos;
+        Position startingPos = pos;
+
         Position nextSpot = UserInput.askUserForMoveCoords();
 
-        ArrayList<Position> possibleSpots = this.getValidSpots(b);
-        if (possibleSpots.contains(nextSpot)) {
-            this.setPos(nextSpot); 
+        if (getValidSpots(b).contains(nextSpot)) {
+            setPos(nextSpot); 
             Marble[][] board = b.getBoardArray();
             board[nextSpot.x][nextSpot.y] = this;
             board[startingPos.x][startingPos.y] = null;
         }
+        else {
+            System.out.println("Please select another spot.");
+            moveOver(b);
+        }
     }
 }
-

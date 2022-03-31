@@ -62,16 +62,16 @@ public class Board {
         
         for (int i = 0; i < 3; i++) {
             Position p = startingPositions.get(i);
-            this.getBoardArray()[p.x][p.y] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y));
-            this.getBoardArray()[p.x][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 2));
-            this.getBoardArray()[p.x][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 4));
-            this.getBoardArray()[p.x][p.y + 6] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 6));
-            this.getBoardArray()[p.x - 1][p.y + 1] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 1));
-            this.getBoardArray()[p.x - 1][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 3));
-            this.getBoardArray()[p.x - 1][p.y + 5] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 5));
-            this.getBoardArray()[p.x - 2][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 2, p.y + 2));
-            this.getBoardArray()[p.x - 2][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 2, p.y + 4));
-            this.getBoardArray()[p.x - 3][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 3, p.y + 3));
+            getBoardArray()[p.x][p.y] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y));
+            getBoardArray()[p.x][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 2));
+            getBoardArray()[p.x][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 4));
+            getBoardArray()[p.x][p.y + 6] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 6));
+            getBoardArray()[p.x - 1][p.y + 1] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 1));
+            getBoardArray()[p.x - 1][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 3));
+            getBoardArray()[p.x - 1][p.y + 5] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 1, p.y + 5));
+            getBoardArray()[p.x - 2][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 2, p.y + 2));
+            getBoardArray()[p.x - 2][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 2, p.y + 4));
+            getBoardArray()[p.x - 3][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x - 3, p.y + 3));
 
             endZones[colourNums.get(i)][0] = new Position(p.x, p.y);
             endZones[colourNums.get(i)][1] = new Position(p.x, p.y + 2);
@@ -90,16 +90,16 @@ public class Board {
 
         for (int i = 3; i < 6; i++) {
             Position p = startingPositions.get(i);
-            this.getBoardArray()[p.x][p.y] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y));
-            this.getBoardArray()[p.x][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 2));
-            this.getBoardArray()[p.x][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 4));
-            this.getBoardArray()[p.x][p.y + 6] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 6));
-            this.getBoardArray()[p.x + 1][p.y + 1] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 1));
-            this.getBoardArray()[p.x + 1][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 3));
-            this.getBoardArray()[p.x + 1][p.y + 5] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 5));
-            this.getBoardArray()[p.x + 2][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 2, p.y + 2));
-            this.getBoardArray()[p.x + 2][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 2, p.y + 4));
-            this.getBoardArray()[p.x + 3][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 3, p.y + 3));
+            getBoardArray()[p.x][p.y] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y));
+            getBoardArray()[p.x][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 2));
+            getBoardArray()[p.x][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 4));
+            getBoardArray()[p.x][p.y + 6] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x, p.y + 6));
+            getBoardArray()[p.x + 1][p.y + 1] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 1));
+            getBoardArray()[p.x + 1][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 3));
+            getBoardArray()[p.x + 1][p.y + 5] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 1, p.y + 5));
+            getBoardArray()[p.x + 2][p.y + 2] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 2, p.y + 2));
+            getBoardArray()[p.x + 2][p.y + 4] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 2, p.y + 4));
+            getBoardArray()[p.x + 3][p.y + 3] = new Marble(colourNums.get(i), colourNums.get((i + 3) % 6), new Position(p.x + 3, p.y + 3));
 
             endZones[colourNums.get(i)][0] = new Position(p.x, p.y);
             endZones[colourNums.get(i)][1] = new Position(p.x, p.y + 2);
@@ -112,26 +112,18 @@ public class Board {
             endZones[colourNums.get(i)][8] = new Position(p.x + 2, p.y + 4);
             endZones[colourNums.get(i)][9] = new Position(p.x + 3, p.y + 3);
         }
-    }   
-
-    public boolean isUnoccupied(Position p) {
-        return (boardArray[p.x][p.y] == null);
-    }
-
-    public void jump() {
-        //TODO
-    }
+    }  
 
     public String[][] drawBoard() {
         String[][] stringArray = new String[17][25];
         for (int i = 0; i < 17; i++) {
             for (int j = 0 ; j < 25 ; j++) {
-                if (this.boardArray[i][j] == null){
+                if (boardArray[i][j] == null){
                     stringArray[i][j] = ".";
                     continue;
                 }
 
-                switch(this.boardArray[i][j].colour) {
+                switch(boardArray[i][j].colour) {
                     case 0:
                         stringArray[i][j] = "x";
                         break;
@@ -164,8 +156,35 @@ public class Board {
             System.out.println(String.join(" ", los));
         }
     }
-}
 
+    public boolean isEmptySpotOnBoard(Position p) {
+        return (isOnBoard(p) && isUnoccupied(p));
+    }
+
+    public boolean isOnBoard(Position p) {
+        return ((p.x == 12) && (p.y == 0 || p.y == 16)) 
+            || ((p.x == 11 || p.x == 13) && (p.y == 1 || p.y == 15))
+            || ((p.x == 10 || p.x == 12 || p.x == 14) && (p.y == 2 || p.y == 14)) 
+            || ((p.x == 9 || p.x == 11 || p.x == 13 || p.x == 15) && (p.y == 3 || p.y == 13)) 
+            || ((p.x >= 0) && (p.x <= 24) && isEven(p.x) && (p.y == 4 || p.y == 12)) 
+            || ((p.x >= 0) && (p.x <= 24) && isOdd(p.x) && (p.y == 5 || p.y == 11))
+            || ((p.x >= 2) && (p.x <= 22) && isEven(p.x) && (p.y == 6 || p.y == 10))
+            || ((p.x >= 3) && (p.x <= 21) && isOdd(p.x) && (p.y == 7 || p.y == 9)) 
+            || ((p.x >= 4) && (p.x <= 20) && isEven(p.x) && (p.y == 8));
+    }
+
+    public boolean isUnoccupied(Position p) {
+        return (boardArray[p.x][p.y] == null);
+    }
+
+    private boolean isEven(int i) {
+        return (i % 2 == 0);
+    } 
+
+    private boolean isOdd(int i) {
+        return (i % 2 == 1);
+    }
+}
 
 
 
