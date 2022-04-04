@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Scanner;
 
 public class UserInput {
@@ -9,7 +11,7 @@ public class UserInput {
         System.out.println("Enter the y coordinate of the piece you would like to move");
         int yCoord = myScanner.nextInt();
 
-        return new Position(xCoord, yCoord);
+        return new Position(yCoord, xCoord);
     }
 
     public static Position askUserForMoveCoords() {
@@ -18,6 +20,6 @@ public class UserInput {
         System.out.println("Enter the y coordinate for your move");
         int newYCoord = myScanner.nextInt();
 
-        return new Position(newXCoord, newYCoord);
+        return new Position(newYCoord, newXCoord);
     }
 }

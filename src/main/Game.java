@@ -1,3 +1,5 @@
+package main;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -10,7 +12,7 @@ public class Game {
         do {
             chineseCheckers.printBoard(chineseCheckers.drawBoard());
             Position pos = UserInput.askUserForMarbleCoords();
-            Marble marble = chineseCheckers.getBoardArray()[pos.x][pos.y];
+            Marble marble = chineseCheckers.getBoardArray()[pos.y][pos.x];
 
             marble.moveOver(chineseCheckers);
             won = checkIfWon(chineseCheckers, marble, chineseCheckers.getEndZones()[marble.getOppColour()]);

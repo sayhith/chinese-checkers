@@ -1,18 +1,20 @@
+package main;
+
 public class Position {
-    int x;
-    int y; 
+    int y;
+    int x; 
 
-    public Position(int x, int y) {
-    this.x = x;
+    public Position(int y, int x) {
     this.y = y;
+    this.x = x;
     } 
-
-    public int getX() {
-        return x;
-    }
 
     public int getY() {
         return y;
+    }
+
+    public int getX() {
+        return x;
     }
 
     @Override
@@ -33,6 +35,6 @@ public class Position {
         Position p = (Position) o;
          
         // Compare the data members and return accordingly
-        return (x == p.x) && (y == p.y);
+        return (y == p.y) && (x == p.x);
     }
 }

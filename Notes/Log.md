@@ -106,3 +106,31 @@
 - getJumpingSpots() is recursive 
 - getAdjacentSpots() and getJumpingSpots() only return valid positions now because they check and remove all invalid positions before returning
 - created isEmptySpotOnBoard() to check if a spot is both unoccupied and on the board in one method by combining the two other helper methods 
+
+## April 1, 2022
+- JUnit 4 testing implemented
+- Tests written for Board and Marble (incomplete)
+
+- Restructured project directory into packages - fixed import issue and will make scaling up easier 
+
+- Concurrent modification error (remove() in `get______Spots()` to remove invalid Positions)
+- Instead of removing the invalid spots, made a new list and added the valid spots outside the for loop 
+
+- Recursion error - kept iterating over invalid spots and never ending 
+- Moved the recursive call into for loop 
+
+- Realized that there is nothing to stop a marble from moving back into the spot it just vacated resulting in a never ending loop
+
+## April 2, 2022
+- Fixed recursive function `getJumpingSpots()` by preventing it from recursing over Positions it has already considered
+- This allows the method to terminate once all spots have been considered once
+
+- The method still included the initial Position (where the marble is currently) as a valid spot
+- Decided not to stop `getJumpingSpots()` from including the first position because it is easy to remove after the method has ended and trying to deal with it in the method would make it more complicated 
+
+- Fixed bug in `isSpotUnoccupied()` in Board 
+- Was indexing incorrectly and throwing OutOfBounds exception because boardArray is indexed y, x instead of x, y 
+
+## April 4, 2022
+- Switched all the x and y to account for the fact that our arrays index (y,x) instead of (x,y)
+- User is still asked for the x coordinate first but all the internal coordinates are (y,x)
