@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Game {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Game {
             chineseCheckers.printBoard(chineseCheckers.drawBoard());
             Position pos = UserInput.askUserForMarbleCoords();
             Marble marble = chineseCheckers.getBoardArray()[pos.y][pos.x];
+            System.out.println("Possible moves are:" + marble.ListOfPosToString(marble.getValidSpots(chineseCheckers)));
 
             marble.moveOver(chineseCheckers);
             won = checkIfWon(chineseCheckers, marble, chineseCheckers.getEndZones()[marble.getOppColour()]);
@@ -22,7 +24,7 @@ public class Game {
     }
 
     public static boolean checkIfWon(Board board, Marble marble, Position[] lop) {
-        ArrayList<Marble> sameColouredMarbles = new ArrayList<Marble>();
+        List<Marble> sameColouredMarbles = new ArrayList<Marble>();
         for (Marble[] marbleArray : board.boardArray) {
             for (Marble m : marbleArray) {
                 if ((m != null) && (m.colour == marble.colour)) {

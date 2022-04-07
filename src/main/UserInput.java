@@ -15,7 +15,7 @@ public class UserInput {
     }
 
     public static Position askUserForMoveCoords() {
-        System.out.println("Enter the x coordinate for your move");
+        System.out.println("Enter the x coordinate for your move.");
         int newXCoord = myScanner.nextInt();
         System.out.println("Enter the y coordinate for your move");
         int newYCoord = myScanner.nextInt();

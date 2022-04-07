@@ -41,10 +41,10 @@ import java.util.List;
         this.pos = pos;
     }
 
-    public ArrayList<Position> getValidSpots(Board b) {
-        ArrayList<Position> validSpots = new ArrayList<Position>();
+    public List<Position> getValidSpots(Board b) {
+        List<Position> validSpots = new ArrayList<Position>();
         validSpots.addAll(getAdjacentSpots(b));
-        ArrayList<Position> jumpingSpots = new ArrayList <Position>();
+        List<Position> jumpingSpots = new ArrayList <Position>();
         validSpots.addAll(getJumpingSpots(b, pos.y, pos.x, jumpingSpots));
         // Remove position of current marble so its own position is not a valid move 
         validSpots.remove(getPos());
@@ -52,7 +52,7 @@ import java.util.List;
     }
 
     public List<Position> getAdjacentSpots(Board b) {
-        ArrayList<Position> adjacentSpots = new ArrayList<Position> ();
+        List<Position> adjacentSpots = new ArrayList<Position> ();
         adjacentSpots.add(new Position(pos.y-2, pos.x));
         adjacentSpots.add(new Position(pos.y+2, pos.x));
         adjacentSpots.add(new Position(pos.y-1, pos.x-1));
@@ -74,24 +74,24 @@ import java.util.List;
 
         List<Position> jumpingSpots = new ArrayList<Position>();
 
-        if (b.isOccupiedSpotOnBoard(new Position(y-2, x))) {
-            jumpingSpots.add(new Position(y-4, x));
+        if (b.isOccupiedSpotOnBoard(new Position(y, x-2))) {
+            jumpingSpots.add(new Position(y, x-4));
         }
 
-        if (b.isOccupiedSpotOnBoard(new Position(y+2, x))) {
-            jumpingSpots.add(new Position(y+4, x));
+        if (b.isOccupiedSpotOnBoard(new Position(y, x+2))) {
+            jumpingSpots.add(new Position(y, x+4));
         }
 
         if (b.isOccupiedSpotOnBoard(new Position(y-1, x-1))) {
             jumpingSpots.add(new Position(y-2, x-2));
         }
 
-        if (b.isOccupiedSpotOnBoard(new Position(y-1, x+1))) {
-            jumpingSpots.add(new Position(y-2, x+2));
-        }
-
         if (b.isOccupiedSpotOnBoard(new Position(y+1, x-1))) {
             jumpingSpots.add(new Position(y+2, x-2));
+        }
+
+        if (b.isOccupiedSpotOnBoard(new Position(y-1, x+1))) {
+            jumpingSpots.add(new Position(y-2, x+2));
         }
 
         if (b.isOccupiedSpotOnBoard(new Position(y+1, x+1))) {
@@ -122,5 +122,13 @@ import java.util.List;
             System.out.println("Please select another spot.");
             moveOver(b);
         }
+    }
+
+    public List<String> ListOfPosToString(List<Position> lop) {
+        List<String> listOfString = new ArrayList<String>();
+        for (Position p: lop) {
+            listOfString.add("(" + p.getX() + "," + p.getY() + ")");
+        }
+        return listOfString;
     }
 }

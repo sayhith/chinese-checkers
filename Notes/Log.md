@@ -134,3 +134,8 @@
 ## April 4, 2022
 - Switched all the x and y to account for the fact that our arrays index (y,x) instead of (x,y)
 - User is still asked for the x coordinate first but all the internal coordinates are (y,x)
+
+## April 6, 2022
+- Implemented Liskov Substitution Principle and changed all ArrayList<> declarations to List<>
+- Wrote `listOfPosToString` which takes a list of Positions and returns a list of their coordinates as Strings
+- Used above method to print out a list of possible move coordinates before each turn 

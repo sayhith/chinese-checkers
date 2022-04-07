@@ -2,7 +2,7 @@ package tests;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class MarbleTest {
 
     @Test
     public void noValidSpotsTest() {
-        ArrayList<Position> ab = marble.getValidSpots(board);
+        List<Position> ab = marble.getValidSpots(board);
         assertTrue(ab.size() == 0);
     }
     
