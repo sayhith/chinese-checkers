@@ -53,11 +53,11 @@ import java.util.List;
 
     public List<Position> getAdjacentSpots(Board b) {
         List<Position> adjacentSpots = new ArrayList<Position> ();
-        adjacentSpots.add(new Position(pos.y-2, pos.x));
-        adjacentSpots.add(new Position(pos.y+2, pos.x));
+        adjacentSpots.add(new Position(pos.y, pos.x-2));
+        adjacentSpots.add(new Position(pos.y, pos.x+2));
         adjacentSpots.add(new Position(pos.y-1, pos.x-1));
-        adjacentSpots.add(new Position(pos.y-1, pos.x+1));
         adjacentSpots.add(new Position(pos.y+1, pos.x-1));
+        adjacentSpots.add(new Position(pos.y-1, pos.x+1));
         adjacentSpots.add(new Position(pos.y+1, pos.x+1));
 
         List<Position> validAdjacentSpots = new ArrayList<Position>();
@@ -130,5 +130,11 @@ import java.util.List;
             listOfString.add("(" + p.getX() + "," + p.getY() + ")");
         }
         return listOfString;
+    }
+
+    public void moveManually(Board b, Position p) {
+        b.getBoardArray()[pos.y][pos.x] = null;
+        setPos(p);
+        b.getBoardArray()[p.y][p.x] = this;
     }
 }

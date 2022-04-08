@@ -139,3 +139,8 @@
 - Implemented Liskov Substitution Principle and changed all ArrayList<> declarations to List<>
 - Wrote `listOfPosToString` which takes a list of Positions and returns a list of their coordinates as Strings
 - Used above method to print out a list of possible move coordinates before each turn 
+
+## April 7, 2022
+- Added `moveManually()` to manually move a marble to make testing easier 
+- Fixed bug in `getAdjacentSpots()` (switch x's and y's)
+- Added more tests to MarbleTest
