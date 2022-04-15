@@ -12,7 +12,7 @@ public class Game {
 
         do {
             chineseCheckers.printBoard(chineseCheckers.drawBoard());
-            Position pos = UserInput.askUserForMarbleCoords();
+            Position pos = UserInput.askUserForMarbleCoords();  
             Marble marble = chineseCheckers.getBoardArray()[pos.y][pos.x];
             System.out.println("Possible moves are:" + marble.ListOfPosToString(marble.getValidSpots(chineseCheckers)));
 
@@ -40,5 +40,4 @@ public class Game {
         }
         return (numMarblesInEndZone == 10);
     }
-
 }

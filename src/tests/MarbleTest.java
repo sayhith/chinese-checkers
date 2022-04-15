@@ -3,6 +3,7 @@ package tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,22 +15,11 @@ import main.Position;
 
 public class MarbleTest {
     Board board;
-    // Marble marble;
-    // Marble marble2;
-    // Marble marble3;
-    // Marble marble4;
-    // Marble marble5;
 
     @Before
     public void setUp() {
         board = new Board();
         board.initBoard();
-
-        // marble = board.getBoardArray()[0][12];
-        // marble2 = board.getBoardArray()[9][3];
-        // marble3 = board.getBoardArray()[4][4];
-        // marble4 = board.getBoardArray()[2][14];
-        // marble5 = board.getBoardArray()[3][13];
     }
 
     @Test
@@ -71,6 +61,39 @@ public class MarbleTest {
         assertTrue(validSpots.contains(new Position(5, 11)));
         assertTrue(validSpots.contains(new Position(4, 14)));
     }
+
+    @Test
+    public void getAdjacentSpotsTest() {
+        Marble marble = board.getBoardArray()[3][11];
+        Marble marble2 = board.getBoardArray()[11][21];
+        marble.moveManually(board, new Position(4, 12));
+        marble2.moveManually(board, new Position(9, 19));
+
+        List<Position> adjSpots = marble.getAdjacentSpots(board);
+        assertEquals(5, adjSpots.size());
+        assertTrue(adjSpots.contains(new Position(3, 11)));
+        assertTrue(adjSpots.contains(new Position(4, 10)));
+        assertTrue(adjSpots.contains(new Position(5, 11)));
+        assertTrue(adjSpots.contains(new Position(5, 13)));
+        assertTrue(adjSpots.contains(new Position(4, 14)));
+
+        List<Position> adjSpots2 = board.getBoardArray()[10][20].getAdjacentSpots(board);
+        assertEquals(2, adjSpots2.size());
+        assertTrue(adjSpots2.contains(new Position(11, 21)));
+        assertTrue(adjSpots2.contains(new Position(10, 18)));
+        
+    }
+
+    @Test
+    public void getJumpingSpotsTest() {
+        Marble marble = board.getBoardArray()[4][4];
+        List<Position> lop = new ArrayList<Position>();
+        List<Position> jmpSpots = marble.getJumpingSpots(board, 4, 4, lop);
+
+        assertEquals(2, jmpSpots.size());
+        assertTrue(jmpSpots.contains(new Position(6, 6)));
+        assertTrue(jmpSpots.contains(new Position(4, 8)));
+    }
     
     @Test
     public void moveManuallyTest() {
@@ -80,5 +103,20 @@ public class MarbleTest {
         assertEquals(null, board.getBoardArray()[2][14]);
         assertEquals(new Position(4, 12), marble.getPos());
         assertEquals(marble, board.getBoardArray()[4][12]);
+    }
+
+    @Test
+    public void moveOverValidSpotTest() {
+        Marble marble = board.getBoardArray()[2][12];
+        marble.moveOver(board, 14, 4);
+        assertEquals(marble, board.getBoardArray()[4][14]);
+        assertEquals(new Position(4, 14), marble.getPos());
+    }
+
+    @Test
+    public void moveOverInvalidSpotTest() {
+        Marble marble = board.getBoardArray()[2][12];
+        marble.moveOver(board, 13, 3);
+        assertEquals(marble, board.getBoardArray()[2][12]);
     }
 }

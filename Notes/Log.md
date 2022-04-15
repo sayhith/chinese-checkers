@@ -137,10 +137,18 @@
 
 ## April 6, 2022
 - Implemented Liskov Substitution Principle and changed all ArrayList<> declarations to List<>
-- Wrote `listOfPosToString` which takes a list of Positions and returns a list of their coordinates as Strings
+- Wrote `listOfPosToString()` which takes a list of Positions and returns a list of their coordinates as Strings
 - Used above method to print out a list of possible move coordinates before each turn 
 
 ## April 7, 2022
 - Added `moveManually()` to manually move a marble to make testing easier 
 - Fixed bug in `getAdjacentSpots()` (switch x's and y's)
 - Added more tests to MarbleTest
+
+## April 14, 2022
+- Created new `moveOver()` for testing purposes and finished Marble tests
+- Changed the user input methods so a user can enter two numbers at once and not the x and y coords one at a time
+- Made `askUserForMarbleCoords()` more robust by allowing it to only accept valid coordinates (two numbers separated by a space)
+- Created `InvalidInputException()` to handle invalid user input (eg. letters, symbols, only one number)
+- **TODO**: Can't allow user to input a marble that cannot make any moves
+- **TODO**: Make `askUserForMoveCoords()` more robust 

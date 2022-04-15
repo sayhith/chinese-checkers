@@ -137,4 +137,22 @@ import java.util.List;
         setPos(p);
         b.getBoardArray()[p.y][p.x] = this;
     }
+
+    // For testing
+    public void moveOver(Board b, int xInput, int yInput) {
+        Position startingPos = pos;
+
+        Position nextSpot = new Position(yInput, xInput);
+
+        if (getValidSpots(b).contains(nextSpot)) {
+            setPos(nextSpot); 
+            Marble[][] board = b.getBoardArray();
+            board[nextSpot.y][nextSpot.x] = this;
+            board[startingPos.y][startingPos.x] = null;
+        }
+        else {
+            System.out.println("Please select another spot.");
+            moveOver(b);
+        }
+    }
 }
