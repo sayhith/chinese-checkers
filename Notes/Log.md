@@ -152,3 +152,7 @@
 - Created `InvalidInputException()` to handle invalid user input (eg. letters, symbols, only one number)
 - **TODO**: Can't allow user to input a marble that cannot make any moves
 - **TODO**: Make `askUserForMoveCoords()` more robust 
+
+## April 15, 2022
+- Added checks so user cannot select a marble with no possible moves or a spot on the board that does not contain a marble 
+- Finished foolproofing `askUserForMoveCoords()`
